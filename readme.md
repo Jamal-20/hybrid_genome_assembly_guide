@@ -124,10 +124,8 @@ bash 'analysis.sh'
 * Chaumeil et al., 2022 – GTDB-Tk
 
 ---
-
-
 ## Happy assembling!
-Open an issue if anything breaks\
+Open an issue if anything breaks
 
 ---
 ## Acknowledgement:
