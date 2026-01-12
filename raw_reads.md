@@ -1,7 +1,5 @@
 # Whole Genome Sequence and Assembly
 
-## Overview 
-## Workflow
 ### 1. Raw Reads
 
 We will use grabseqs for raw reads downloadings
