@@ -15,15 +15,13 @@ This guide provides a comprehensive, step-by-step workflow for assembling bacter
 ---
 
 ## 📑 Table of Contents
-| Section | Description |
-|---------|-------------|
-| [1. Overview](#1-overview) | 30-second elevator pitch |
-| [2. Pipeline Overview](#2-pipeline) | What each folder & script does |
-| [3. Quick Start](#3-quick-start) | Install → Run in 3 commands |
-| [4. Workflow Steps](#4-workflow-steps) | Walk-through of numbered folders |
-| [5. Outputs Cheat-Sheet](#5-outputs-cheat-sheet) | Key files to look for |
-| [6. Quality Benchmarks](#6-quality-benchmarks) | Rules-of-thumb table |
-| [7. Citation](#7-citation) | Please cite us |
+[1. Overview](#1-overview) \
+[2. Pipeline Workflow](#2-pipeline) \
+[3. Quick Start](#3-quick-start) \
+[4. Workflow Steps](#4-workflow-steps) \
+[5. Outputs Cheat-Sheet](#5-outputs-cheat-sheet) \
+[6. Quality Benchmarks](#6-quality-benchmarks) \
+[7. Citation](#7-citation) 
 
 
 ---
@@ -36,11 +34,11 @@ This repository provides a complete end-to-end workflow for assembling bacterial
 * Hybrid (both data types combined)
 
 All tools are executed inside isolated conda environments, ensuring reproducibility, portability, and long-term usability. 
-bash scripts `bash analysis.sh` automate every step.
+bash scripts `installation.sh` and `analysis.sh` automate every step.
 
 ---
 
-## 2. Pipeline Overview:
+## 2. Pipeline:
 The following diagram illustrates the complete workflow implemented in this repository, from raw sequencing reads to final genome annotation and taxonomic classification.
 ![Pipeline Diagram](hybrid-genome-assembly.png)
 
@@ -49,9 +47,9 @@ The following diagram illustrates the complete workflow implemented in this repo
 ```
 bash 'installation.sh'
 ```
-⚠️ Requires Conda / Mamba and ~250 GB disk space for databases.
-
-🚀 Run the pipeline (for each sample)
+* Requires Conda / Mamba and ~250 GB disk space for databases.
+* Run the pipeline (for each sample)
+  
 # b. Place raw reads in:
 ```
 example data: BioProject: PRJNA244942
@@ -70,9 +68,9 @@ bash 'analysis.sh'
 
 | Stage | Folder                            | What happens                                                                                                                   |
 | ----- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| 0     | `00_papers/`                      | keep PDFs for methods citations                                                                                                |
+| 0     | `00_papers/`                      | raw reads research article reference  |
 | 1     | `01_raw_reads/`                   | pipeline expects:<br>`short_reads/xxx_1.fastq.gz` & `xxx_2.fastq.gz`<br>`long_reads/xxx.fastq.gz`                              |
-| 2     | `02_reads_QC_before_processing/`  | fastqc + NanoPlot pre-trimming                                                                                                 |
+| 2     | `02_reads_QC_before_processing/`  | fastqc for quality control check                                                                                                 |
 | 3     | `03_reads_processed/`             | fastp (short) & NanoFilt (long) cleaned reads                                                                                  |
 | 4     | `04_reads_QC_after_processing/`   | fastqc + NanoPlot post-trimming                                                                                                |
 | 5     | `05_hybrid_genome_assembly/`      | Unicycler in three modes:<br>`01_short_only_assembly/`<br>`02_long_only_assembly/`<br>`03_hybrid_assembly/` ← **use this one** |
